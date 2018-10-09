@@ -1,0 +1,206 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body, html{ height: 100px; margin: 0;}
+body{
+    background:  url(assets/bg.jpg) bottom fixed no-repeat;
+    background-size: cover;
+    font-family: 'Heebo', sans-serif;
+
+
+}
+.layer{
+    background: rgba(24, 25, 28, 0.4);
+    height: 100vh;
+    position: fixed ;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+
+}
+    .layer-sobreposto{ z-index: 50; background: rgba(24, 25, 28, 0.9);}
+.logo{
+    z-index: 10;
+    overflow: hidden;
+    color:transparent;
+    background: url(assets/logo_medium.png) no-repeat 25px center;
+    width: 400px;
+    margin: auto;
+    position: relative ;
+    padding: 80px  5px;
+    height: 30px;
+}
+.box-login{
+    z-index: 10;
+    overflow: hidden;
+    position: relative ;
+    max-width: 400px;
+    margin:0  auto;
+    color:#fff;
+}
+    .box-login h2,.box_inserir h2{
+        text-align: center;
+        font-size: 1em;
+        overflow: hidden;
+        color:#fff;
+    }
+.brn--acessar{
+
+    background: rgb(255, 6, 105);
+    border-radius: 5px;
+    width: 90%;
+    margin: auto;
+    border: none;
+    padding: 20px;
+    font-size: 0.9em;
+    margin: 20px 5%;
+
+    color:#fff;
+    -webkit-box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.55);
+    box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.55);
+    cursor: pointer;
+
+}
+
+.box-login input,.box_inserir input  {
+    width: 90%;
+    float: right;
+    height: 38px;
+    background-color: transparent;
+    border:  1px solid #fff;;
+    outline: none;
+    color:#fff;
+    font-size: 1.1em;
+    padding: 22px ;
+    box-sizing: border-box;
+    margin: 15px 5%;
+    border-radius: 5px;
+}
+
+ /*cores placehold*/
+
+ ::-webkit-input-placeholder {
+    color: #fff;
+    font-size: 0.8em;
+ }
+
+ :-moz-placeholder { /* Firefox 18- */
+    color: #fff;
+    font-size: 0.8em;
+
+ }
+
+ :-ms-input-placeholder {
+    color: #fff;
+    font-size: 0.8em;
+ }
+ .container{
+     position: relative;
+     z-index: 10;
+     width: 90%;
+     margin: 0px auto;
+     padding-top: 20px;
+
+ }
+ .logo-interno h1{ margin: 0; padding: 0;}
+ .logo-interno {
+    float: left;
+    width: 30%;
+    color: transparent;
+    height: 32px;
+    background: url(assets/logo_big.png) no-repeat left;
+    background-size: contain;
+}
+.titulo{
+
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+    margin-top: 20px;
+    width: 34%;
+    float: left;
+}
+.titulo h2{
+    font-size: 1em !important;
+    padding-top: 20px;
+
+}
+ .botao-criar{
+    float: right;
+    background: rgb(255, 6, 105);
+    border-radius: 25px;
+    text-align: center;
+    width: 30%;
+    padding: 2px 10px;
+    font-size: 0.8em;
+    cursor: pointer;
+    color:#fff;
+
+}
+.box{ overflow: hidden; width: 100%;}
+.box--item{
+    padding: 10px;
+    -webkit-box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.35);
+    box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.35);
+    background: #fff;
+    border-radius: 5px;
+    color:#7d7d7d;
+    font-size: 0.8em;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.box--materia{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-weight: 800
+}
+.box--professor{
+    display: block
+}
+.box-endereco{
+    float: left;
+}
+.box-horario{
+    float: right;
+}
+  .fechar_inserir{ border: none; background: url(assets/close_white.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
+  .fechar{ border: none; background: url(assets/close_grey.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
+
+  .box_inserir{ position: absolute; width: 100%; height: 100%; background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
+ .meio{ float:left; width:40% !important;}
+  @media screen and (min-width:1024px) {
+    .logo{
+        overflow: hidden;
+        padding-top: 50px;
+        background: url(assets/logo_big.png) no-repeat  center !important;
+        max-width: 25%;
+        width: 25% !important;
+    }
+    .box-login{
+        max-width: 25%;
+        width: 25% !important;
+
+    }
+    .container{ width: 1000px;}
+    .box--item{
+
+        width: 45%;
+        float: left;
+        margin: 1%;
+    }
+    .botao-criar{
+  width: 100px;
+
+    }
+    .titulo{
+        width: 30%;
+
+        float: left;
+        margin-top: -30px;
+        margin-bottom: 50px;
+
+
+    }
+    .box{ overflow: hidden; width: 80%; margin: 120px auto ;}
+    .box_inserir{ position: absolute; width: 30%; height: 400px; top:50%; left: 50%; margin-left: -15%; margin-top: -200px;  background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
+
+}
