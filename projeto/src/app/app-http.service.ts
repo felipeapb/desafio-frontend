@@ -8,6 +8,7 @@ import { build$ } from 'protractor/built/element';
 })
 export class AppHttpService {
   private url: string;
+
   constructor(private http: HttpClient) {
 console.log('service-construtor');
 
@@ -22,5 +23,7 @@ console.log('service-construtor');
   create(data): any {
     return this.http.post(this.url, data);
   }
-
+  delete(id): any {
+    return this.http.delete(this.url + '/' + id );
+  }
 }

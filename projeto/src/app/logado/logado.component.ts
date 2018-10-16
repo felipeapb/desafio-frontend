@@ -8,6 +8,7 @@ import { CursosService } from './cursos.service';
 
 
 import * as $ from 'jquery';
+import { join } from 'path';
 
 @Component({
   selector: 'app-logado',
@@ -17,6 +18,9 @@ import * as $ from 'jquery';
 export class LogadoComponent implements OnInit {
 
 public usuario = {};
+public professores = {};
+public salas = {};
+public atum: object = this.professores;
 
 
 public cursos: any = [];
@@ -24,9 +28,15 @@ public cursos: any = [];
 
 
 
+
+
+
   constructor(private service: CursosService, private service2: AppHttpService) { }
 
   ngOnInit() {
+
+// json de gravacao
+
 
 
     this.service2.build('curso')
@@ -59,8 +69,13 @@ this.cursos = data.cursos;
 
 
   }
+
+
   save() {
-console.log(this.usuario);
+
+console.log(this.professores);
+console.log(this.salas);
+
 this.service2.build('curso')
   .create( this.usuario )
   .subscribe(
@@ -74,4 +89,19 @@ this.service2.build('curso')
   );
   }
 
+
+  delete(id) {
+
+    if (confirm('Você tem certeza')) {
+      this.service2.build('curso')
+      .delete(id)
+      .subscribe(
+        () => {
+          $(document).ready(function() {
+          alert('Arquivo exluido com sucesso');
+          });
+        }
+      );
+    }
+  }
 }

@@ -1,21 +1,21 @@
 <div class="box_inserir" style="display: none;">
-    <button class="fechar_inserir"></button>
+    <div class="fechar_inserir"  ></div>
     <h2> Login </h2>
     <form (submit)='save()'>
     <input type="text" name="nome"  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
 
-    <select name="professor" [(ngModel)]='usuario.professores' multiple>
+    <!-- <select name="professor" [(ngModel)]='professores.professor' multiple>
+        <option value="valor1"  >valor1</option>
+        <option value="valor2"   >valor2</option>
+        <option value="valor3"> valor3</option>
+        <option value="valor4"> valor4</option>
+    </select>
+    <select name="salas"  [(ngModel)]='salas.salas' multiple>
         <option value="1"  >valor1</option>
         <option value="2"   >valor2</option>
-        <option value="3"> valor3</option>
-        <option value="4"> valor4</option>
-    </select>
-    <select name="salas"  [(ngModel)]='usuario.salas' multiple>
-        <option value="1">valor1</option>
-        <option value="2">valor2</option>
         <option value="3">valor3</option>
         <option value="4">valor4</option>
-    </select>
+    </select>-->
   <br clear="all">
     <input class="meio" type="text" [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
     <input  class="meio" type="text" [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
@@ -42,7 +42,7 @@
 
         <div class="box">
                 <div class="box--item" *ngFor="let curso of cursos">
-                    <button class="fechar"></button>
+                    <button class="fechar" (click)='delete(curso.id)'></button>
                     <h3 class="box--materia"> {{ curso.nome }}</h3>
                     <span class="box--professor"> <span *ngFor="let prof of curso.professores">{{prof.nome}} </span> </span>
 
