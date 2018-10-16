@@ -9,6 +9,7 @@ import { CursosService } from './cursos.service';
 
 import * as $ from 'jquery';
 import { join } from 'path';
+import { HighlightDelayBarrier } from 'blocking-proxy/built/lib/highlight_delay_barrier';
 
 @Component({
   selector: 'app-logado',
@@ -17,38 +18,85 @@ import { join } from 'path';
 })
 export class LogadoComponent implements OnInit {
 
+
+ segredo = '';
+
+
+
+
 public usuario = {};
+
 public professores = {};
 public salas = {};
-public atum: object = this.professores;
+public uniao = [];
+//public atum: object = this.professores;
 
 
 public cursos: any = [];
+public listarprofessores : any = [];
+public listarsalas : any = [];
 
 
 
 
 
+public valortotal= '';
 
 
-  constructor(private service: CursosService, private service2: AppHttpService) { }
+ constructor(private service: CursosService, private service2: AppHttpService) {
+
+
+
+
+  }
 
   ngOnInit() {
 
-// json de gravacao
 
+    setTimeout(() => {
+       this.segredo =$('.box--item').length ;
+       
+       console.log(this.segredo);
+      
+    } , 1000 );
+    
+    this.uniao = [];
 
+    
 
+// json de exibicao de cursos
     this.service2.build('curso')
     .list()
     .subscribe ((data) => {
 this.cursos = data.cursos;
     }
+    );
+   
+ 
+      
 
+  
+    this.service2.build('professor')
+    .list()
+    .subscribe ((data) => {
+this.listarprofessores = data;
+    }
     );
 
+    this.service2.build('sala')
+    .list()
+    .subscribe ((data) => {
+this.listarsalas = data;
+    }
+    );
+
+   
+
+// acoes com box de adesao
 
     $(document).ready(function() {
+
+      
       $('.botao-criar').click(function() {
         $('.layer-sobreposto').delay(100).fadeIn(500);
           $('.box_inserir').delay(500).fadeIn(500);
@@ -59,8 +107,11 @@ this.cursos = data.cursos;
       });
 
   });
-
-
+ 
+  setTimeout(() => {
+     
+    console.log(this.usuario);
+  } , 1000 );
    // this.service.list()
     // .subscribe(dados => this.cursos = dados.cursos );
     // .subscribe(console.log);
@@ -70,11 +121,10 @@ this.cursos = data.cursos;
 
   }
 
+//salvar dados
+save() {
 
-  save() {
-
-console.log(this.professores);
-console.log(this.salas);
+  setTimeout(() => {
 
 this.service2.build('curso')
   .create( this.usuario )
@@ -87,9 +137,12 @@ this.service2.build('curso')
       });
     }
   );
+},2000);
   }
 
-
+ 
+// conso
+//deletar dados
   delete(id) {
 
     if (confirm('Você tem certeza')) {
@@ -99,9 +152,15 @@ this.service2.build('curso')
         () => {
           $(document).ready(function() {
           alert('Arquivo exluido com sucesso');
+          $(document).ready(function() {
+            alert('criado com sucesso');
+              $(this).fadeOut(500);
+            });
+          
           });
         }
       );
     }
   }
+  
 }

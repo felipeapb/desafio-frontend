@@ -24,6 +24,6 @@ console.log('service-construtor');
     return this.http.post(this.url, data);
   }
   delete(id): any {
-    return this.http.delete(this.url + '/' + id );
+    return this.http.delete(this.url + '/:' + id );
   }
 }

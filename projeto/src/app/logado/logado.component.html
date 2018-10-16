@@ -1,26 +1,36 @@
 <div class="box_inserir" style="display: none;">
     <div class="fechar_inserir"  ></div>
-    <h2> Login </h2>
-    <form (submit)='save()'>
-    <input type="text" name="nome"  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
+    <h2> Login  </h2>
+    <form #myForm="ngForm" (submit)='save()'>
+        <input type="hidden" value name="segredo" [(ngModel)]='segredo'>
+        
+    <input [ngClass]="{'has-error': !name.valid  && (name.dirty || name.touched)}" required type="text" #name="ngModel" name="nome" required  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
 
-    <!-- <select name="professor" [(ngModel)]='professores.professor' multiple>
-        <option value="valor1"  >valor1</option>
-        <option value="valor2"   >valor2</option>
-        <option value="valor3"> valor3</option>
-        <option value="valor4"> valor4</option>
+     <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="professor" [(ngModel)]='professores.professor' multiple>
+            <option selected value=""  >Escolha o professor</option>
+            <option  value=" {{ prof.nome }}"   *ngFor="let prof of listarprofessores"> {{ prof.nome }}</option>
+   
     </select>
-    <select name="salas"  [(ngModel)]='salas.salas' multiple>
+    <select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="salao" [(ngModel)]='salas.salas' multiple multiple>
+            <option selected value=""  >Escolha as salas</option>
+            <option  value=" {{ salao.sala }}"   *ngFor="let salao  of listarsalas"> {{ salao.sala }}</option>
+   
+    </select>
+    <!--
+    <select name="salas"  >
         <option value="1"  >valor1</option>
         <option value="2"   >valor2</option>
         <option value="3">valor3</option>
         <option value="4">valor4</option>
     </select>-->
   <br clear="all">
-    <input class="meio" type="text" [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
-    <input  class="meio" type="text" [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
+ 
+  <input [ngClass]="{'has-error': !inicia.valid  && (inicia.dirty || inicia.touched)}" class="meio" #inicia="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
+ <input [ngClass]="{'has-error': !final.valid  && (final.dirty || final.touched)}"  class="meio" #final="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
 
-       <button class="brn--acessar">ACESSAR</button>
+
+
+  <button class="brn--acessar" [disabled]="!myForm.valid">ACESSAR </button>
       </form>
 
 </div>
