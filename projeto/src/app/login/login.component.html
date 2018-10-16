@@ -3,8 +3,13 @@
     <h1 class="logo--imagem">Área de Login da Celson Lisboa</h1>
 </div>
 <div class="box-login">
+  <div class="mserro">Login ou senha inválidos</div>
     <h2> Login </h2>
- <input type="text" name="email" placeholder="E-mail">
-    <input type="password" name="Senha" placeholder="Senha">
-    <button class="brn--acessar">ACESSAR</button>
+    <form>
+ <input type="text" name="email" autofocus
+ [(ngModel)] = "usuario.email" placeholder="E-mail">
+    <input type="password" required
+    [(ngModel)] ="usuario.password" name="Senha" placeholder="Senha">
+    <button class="brn--acessar" type="submit" name="action" (click)= "fazerLogin()">ACESSAR</button>
+  </form>
 </div>

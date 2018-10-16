@@ -1,18 +1,31 @@
-<div class="box_inserir">
+<div class="box_inserir" style="display: none;">
     <button class="fechar_inserir"></button>
     <h2> Login </h2>
-    <input type="text" name="email" placeholder="Nome do Curso">
-    <input type="text" name="email" placeholder="Profesores">
+    <form (submit)='save()'>
+    <input type="text" name="nome"  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
 
-    <input class="meio" type="text" name="Início" placeholder="Início">
-    <input  class="meio" type="text" name="Fim" placeholder="Fim">
+    <select name="professor" [(ngModel)]='usuario.professores' multiple>
+        <option value="1"  >valor1</option>
+        <option value="2"   >valor2</option>
+        <option value="3"> valor3</option>
+        <option value="4"> valor4</option>
+    </select>
+    <select name="salas"  [(ngModel)]='usuario.salas' multiple>
+        <option value="1">valor1</option>
+        <option value="2">valor2</option>
+        <option value="3">valor3</option>
+        <option value="4">valor4</option>
+    </select>
+  <br clear="all">
+    <input class="meio" type="text" [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
+    <input  class="meio" type="text" [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
 
        <button class="brn--acessar">ACESSAR</button>
-
+      </form>
 
 </div>
 <div class="layer"></div>
-<div class="layer layer-sobreposto"></div>
+<div class="layer layer-sobreposto" style="display: none;" ></div>
 <div class="container">
     <div class=" logo-interno">
             <h1 class="logo--imagem">Área de Login da Celson Lisboa</h1>
@@ -28,34 +41,17 @@
 
 
         <div class="box">
-                <div class="box--item">
+                <div class="box--item" *ngFor="let curso of cursos">
                     <button class="fechar"></button>
-                    <h3 class="box--materia"> nome</h3>
-                    <span class="box--professor"> Professor</span>
-                    <span class="box-endereco"> Sala 301</span>
-                    <span class="box-horario"> 9:30 às 12:30</span>
+                    <h3 class="box--materia"> {{ curso.nome }}</h3>
+                    <span class="box--professor"> <span *ngFor="let prof of curso.professores">{{prof.nome}} </span> </span>
+
+                      <span class="box-endereco"> Sala <span *ngFor="let salas of curso.salas">{{salas.sala}} </span> </span>
+
+
+                    <span class="box-horario">  {{curso.inicio}} às {{curso.fim}}</span>
                 </div>
-                <div class="box--item">
-                        <button class="fechar"></button>
-                        <h3 class="box--materia"> nome</h3>
-                        <span class="box--professor"> Professor</span>
-                        <span class="box-endereco"> Sala 301</span>
-                        <span class="box-horario"> 9:30 às 12:30</span>
-                </div>
-                <div class="box--item">
-                        <button class="fechar"></button>
-                        <h3 class="box--materia"> nome</h3>
-                        <span class="box--professor"> Professor</span>
-                        <span class="box-endereco"> Sala 301</span>
-                        <span class="box-horario"> 9:30 às 12:30</span>
-                    </div>
-                    <div class="box--item">
-                            <button class="fechar"></button>
-                            <h3 class="box--materia"> nome</h3>
-                            <span class="box--professor"> Professor</span>
-                            <span class="box-endereco"> Sala 301</span>
-                            <span class="box-horario"> 9:30 às 12:30</span>
-                    </div>
+
         </div>
 </div>
 
