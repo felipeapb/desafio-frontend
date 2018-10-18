@@ -10,7 +10,6 @@ app.use((request,response,next) => {
     response.setHeader('Content-Type', 'application/json');
     response.header("Access-Control-Allow-Origin", "*");
     response.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    headers.add("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     next();    
   })
 

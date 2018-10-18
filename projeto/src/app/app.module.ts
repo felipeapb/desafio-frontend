@@ -18,12 +18,14 @@ import { FormularioComponent } from './logado/formulario/formulario.component';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     LogadoComponent,
-    FormularioComponent
+    FormularioComponent,
+
   ],
   imports: [
     BrowserModule,

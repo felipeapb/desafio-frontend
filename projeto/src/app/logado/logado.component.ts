@@ -18,17 +18,27 @@ import { HighlightDelayBarrier } from 'blocking-proxy/built/lib/highlight_delay_
 })
 export class LogadoComponent implements OnInit {
 
-
- segredo = '';
-
-
+  public listaprof = {};
+   listasala = {};
 
 
-public usuario = {};
 
-public professores = {};
-public salas = {};
-public uniao = [];
+public usuario = {
+
+  nome:'Felipe',
+  inicio:'21:30',
+  fim:'21:30',
+  salas:[],
+  professores:[]
+};
+
+
+
+
+public professores = [];
+public salas = [];
+
+
 //public atum: object = this.professores;
 
 
@@ -40,27 +50,23 @@ public listarsalas : any = [];
 
 
 
+
 public valortotal= '';
 
 
  constructor(private service: CursosService, private service2: AppHttpService) {
 
 
-
-
-  }
+   
+ }
+  
 
   ngOnInit() {
-
-
-    setTimeout(() => {
-       this.segredo =$('.box--item').length ;
-       
-       console.log(this.segredo);
-      
-    } , 1000 );
+  
+  
+  
     
-    this.uniao = [];
+  
 
     
 
@@ -94,6 +100,8 @@ this.listarsalas = data;
 
 // acoes com box de adesao
 
+
+
     $(document).ready(function() {
 
       
@@ -108,10 +116,7 @@ this.listarsalas = data;
 
   });
  
-  setTimeout(() => {
-     
-    console.log(this.usuario);
-  } , 1000 );
+
    // this.service.list()
     // .subscribe(dados => this.cursos = dados.cursos );
     // .subscribe(console.log);
@@ -122,11 +127,18 @@ this.listarsalas = data;
   }
 
 //salvar dados
+
+ 
+
 save() {
 
-  setTimeout(() => {
+  for (var i in this.salas) {
+    //this.usuario['salas']['sala'][i] = this.salas[i];
 
-this.service2.build('curso')
+  }
+ 
+console.log(this.usuario)
+/*this.service2.build('curso')
   .create( this.usuario )
   .subscribe(
     () => {
@@ -137,7 +149,7 @@ this.service2.build('curso')
       });
     }
   );
-},2000);
+*/
   }
 
  
