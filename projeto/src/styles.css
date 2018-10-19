@@ -45,7 +45,6 @@ body{
         color:#fff;
     }
 .brn--acessar{
-
     background: rgb(255, 6, 105);
     border-radius: 5px;
     width: 90%;
@@ -54,16 +53,14 @@ body{
     padding: 20px;
     font-size: 0.9em;
     margin: 20px 5%;
-
     color:#fff;
     -webkit-box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.55);
     box-shadow: 3px 3px 9px 2px rgba(38,45,57,0.55);
     cursor: pointer;
-
 }
 
 
-.box_inserir select {
+.box_inserir select, .box_editar select {
   margin-left: 25px;
   height: 45px;
   width: 90%;
@@ -74,19 +71,16 @@ body{
   background: transparent;
   margin-bottom: 20px;
 }
-.box_inserir select option {
+.box_inserir select option, box_editar select option {
   background: rgba(136, 136, 136, 1);
   margin: 5px;
   border-radius: 5px;
   font-size: 1.1em;
-
-
-
   padding: 5px;
 }
 
 
-.box-login input,.box_inserir input {
+.box-login input,.box_inserir input, .box_editar input {
     width: 90%;
     float: right;
     height: 38px;
@@ -187,10 +181,10 @@ body{
 .box-horario{
     float: right;
 }
-  .fechar_inserir{ border: none; background: url(assets/close_white.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
+  .fechar_editar , .fechar_inserir{ border: none; background: url(assets/close_white.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
   .fechar{ border: none; background: url(assets/close_grey.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
 
-  .box_inserir{ position: absolute; width: 100%; height: 100%; background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
+  .box_inserir,.box_editar{ position: absolute; width: 100%; height: 100%; background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
  .meio{ float:left; width:40% !important;}
   @media screen and (min-width:1024px) {
     .logo{
@@ -226,6 +220,6 @@ body{
 
     }
     .box{ overflow: hidden; width: 80%; margin: 120px auto ;}
-    .box_inserir{ position: absolute; width: 30%; height: 430px; top:50%; left: 50%; margin-left: -15%; margin-top: -200px;  background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
+    .box_inserir, box_editar{ position: absolute; width: 30%; height: 430px; top:50%; left: 50%; margin-left: -15%; margin-top: -200px;  background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
 
 }
