@@ -1,4 +1,5 @@
 <div class="box_inserir" style="display: none;">
+<<<<<<< HEAD
     <div class="fechar_inserir"  ></div>
     <h2> Login  </h2>
   <form #myForm="ngForm" (submit)='save()'>
@@ -41,11 +42,54 @@
 <div class="container">
     <div class=" logo-interno">
             <h1 class="logo--imagem">Área de Login da Celson Lisboa</h1>
+=======
+        <div class="fechar_inserir"  ></div>
+        <h2> Login  </h2>
+        <form #myForm="ngForm" (submit)='save()'>
+            <input type="hidden" value name="segredo" [(ngModel)]='segredo'>
+            
+        <input [ngClass]="{'has-error': !name.valid  && (name.dirty || name.touched)}" required type="text" #name="ngModel" name="nome" required  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
+  
+         
+         <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="nomes" [(ngModel)]='usuario.professores' multiple>
+                <option selected value=""  >Escolha o professor</option>
+                <option  value=" {{ prof.nome }}"   *ngFor="let prof of listarprofessores"> {{ prof.nome }}</option>
+       
+        </select>
+  
+       
+        <select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="sala" [(ngModel)]='usuario.salas' multiple multiple>
+                <option selected value=""  >Escolha as salas</option>
+                <option  value=" {{ salao.sala }}"   *ngFor="let salao  of listarsalas"> {{ salao.sala }}</option>
+       
+        </select>
+  
+        <!--
+        <select name="salas"  >
+            <option value="1"  >valor1</option>
+            <option value="2"   >valor2</option>
+            <option value="3">valor3</option>
+            <option value="4">valor4</option>
+        </select>-->
+      <br clear="all">
+     
+      <input [ngClass]="{'has-error': !inicia.valid  && (inicia.dirty || inicia.touched)}" class="meio" #inicia="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
+     <input [ngClass]="{'has-error': !final.valid  && (final.dirty || final.touched)}"  class="meio" #final="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
+    
+  
+    
+      <button class="brn--acessar" [disabled]="!myForm.valid">ACESSAR </button>
+          </form>
+    
+>>>>>>> 5b1cf9b6c9fefcd8930ee0f3bbb50f7f3c6f3361
     </div>
-    <div class="titulo">
-            <h2>Cursos</h2>
-
+    <div class="layer"></div>
+    <div class="layer layer-sobreposto" style="display: none;" ></div>
+    <div class="container">
+        <div class=" logo-interno">
+                <h1 class="logo--imagem">Área de Login da Celson Lisboa</h1>
         </div>
+<<<<<<< HEAD
     <div class="botao-criar">
 
             CRIAR
@@ -57,6 +101,23 @@
                 <button class="fechar" (click)='delete(curso.id)'></button>
                 <h3 class="box--materia"> {{ curso.nome }}</h3>
                 <span class="box--professor"> <span *ngFor="let prof of curso.professores">{{prof.nome}} </span> </span>
+=======
+        <div class="titulo">
+                <h2>Cursos</h2>
+    
+            </div>
+        <div class="botao-criar">
+    
+                CRIAR
+        </div>
+    
+    
+        <div class="box">
+                <div class="box--item" *ngFor="let curso of cursos">
+                    <button class="fechar" (click)='delete(curso.id)'></button>
+                    <h3 class="box--materia"> {{ curso.nome }}</h3>
+                    <span class="box--professor"> <span *ngFor="let prof of curso.professores">{{prof.nome}} </span> </span>
+>>>>>>> 5b1cf9b6c9fefcd8930ee0f3bbb50f7f3c6f3361
 
                   <span class="box-endereco"> Sala <span *ngFor="let salas of curso.salas">{{salas.sala}} </span> </span>
 
@@ -64,5 +125,12 @@
                 <span class="box-horario">  {{curso.inicio}} às {{curso.fim}}</span>
             </div>
 
+<<<<<<< HEAD
     </div>
 </div>
+=======
+        </div>
+    </div>
+
+  
+>>>>>>> 5b1cf9b6c9fefcd8930ee0f3bbb50f7f3c6f3361
