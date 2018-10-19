@@ -14,7 +14,10 @@ import { AuthGuard } from './guard/auth-guard';
 import { HttpClientModule } from '@angular/common/http';
 import { LocalStorageService } from './logado/local-storage.service';
 import { AppHttpService } from './app-http.service';
-import { FormularioComponent } from './logado/formulario/formulario.component';
+import { Error404Component } from './formupages/error404/error404.component';
+import { EditarComponent} from './editar/editar.component';
+
+
 
 
 
@@ -24,8 +27,8 @@ import { FormularioComponent } from './logado/formulario/formulario.component';
     AppComponent,
     LoginComponent,
     LogadoComponent,
-    FormularioComponent,
-
+    Error404Component,
+    EditarComponent
   ],
   imports: [
     BrowserModule,

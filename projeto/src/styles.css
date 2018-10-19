@@ -68,9 +68,9 @@ button[disabled]{
   background-color: transparent;
   color: #666666;
 }
+.editor{ width: 400px; margin: auto; background: rgba(136, 136, 136, 0.7)}
 
-
-.box_inserir select {
+.box_inserir select, .editor select {
   margin-left: 20px;
   height: 45px;
   width: 90%;
@@ -81,18 +81,20 @@ button[disabled]{
   background: transparent;
   margin-bottom: 20px;
 }
-.box_inserir select option {
+.box_inserir select option, .editor select option  {
     background: rgba(136, 136, 136, 1);
     margin: 8px 3px;
     border-radius: 5px;
     font-size: 1.1em;
     padding: 5px 0;
+    width: 48%; float: left;
+    text-align: center;
 }
 
 
-.box-login input,.box_inserir input {
+.box-login input,.box_inserir input, .editor input {
     width: 90%;
-    float: right;
+    float: left;
     height: 38px;
     background-color: transparent;
     border:  1px solid #fff;;
@@ -191,6 +193,15 @@ button[disabled]{
 .box-horario{
     float: right;
 }
+.box_404{
+    color:#fff;
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: url(assets/404.gif) no-repeat;
+    top:calc(50% - 200px);
+    left:calc(50% - 200px);
+}
   .fechar_inserir{ border: none; background: url(assets/close_white.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
   .fechar{ border: none; background: url(assets/close_grey.png) no-repeat; width: 15px; height: 20px; float: right; margin-left:5px; cursor: pointer }
 
@@ -230,7 +241,8 @@ button[disabled]{
 
     }
     .box{ overflow: hidden; width: 80%; margin: 120px auto ;}
-    .box_inserir {
+    .active{ color:#fff !important;}
+    .box_inserir, .box_editar {
         position: absolute;
         width: 30%;
         height: 520px;

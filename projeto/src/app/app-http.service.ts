@@ -26,4 +26,12 @@ console.log('service-construtor');
   delete(id): any {
     return this.http.delete(this.url + '/:' + id );
   }
+  view(id): any {
+    return this.http.get(this.url + '/' + id );
+  }
+  update(id , data): any {
+    return this.http.patch(this.url + '/' + id, data )
+
+  }
+
 }

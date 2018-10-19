@@ -10,10 +10,7 @@ import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from
 })
 export class AuthGuard implements CanActivate {
 
-  /*const  valorStorage =  (localStorage.getItem('nomeUser'));
-
-
-  if (valorStorage) {this.check = true;  }*/
+ 
   constructor(
     private authService: AuthService,
     private router: Router

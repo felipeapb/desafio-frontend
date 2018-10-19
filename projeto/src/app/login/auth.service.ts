@@ -31,7 +31,7 @@ public check: Boolean ;
       // alert(nomeUser);
 
       if ( nomeUser !== null) {
-  this.check = true; this.router.navigate(['/logado'] ); } else { this.check = false; }
+  this.check = true; } else { this.check = false; }
 
      }
 

@@ -3,13 +3,11 @@ import { FormsModule } from '@angular/forms';
 import { AppHttpService } from './../app-http.service';
 import { Curso } from './../login/curso';
 import { Component, OnInit } from '@angular/core';
-import { CursosService } from './cursos.service';
 
 
-
-import * as $ from 'jquery';
 import { join } from 'path';
 import { HighlightDelayBarrier } from 'blocking-proxy/built/lib/highlight_delay_barrier';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-logado',
@@ -18,18 +16,20 @@ import { HighlightDelayBarrier } from 'blocking-proxy/built/lib/highlight_delay_
 })
 export class LogadoComponent implements OnInit {
 
-  public listaprof = {};
-   listasala = {};
+
+
+public listaprof = {};
+listasala = {};
 
 
 
 public usuario = {
 
-  nome:'Felipe',
-  inicio:'21:30',
-  fim:'21:30',
-  salas:[],
-  professores:[]
+  nome: '',
+  inicio: '',
+  fim: '',
+  salas: [ ],
+  professores: [ ]
 };
 
 
@@ -39,37 +39,33 @@ public professores = [];
 public salas = [];
 
 
-//public atum: object = this.professores;
+
 
 
 public cursos: any = [];
-public listarprofessores : any = [];
-public listarsalas : any = [];
+public listarprofessores: any = [];
+public listarsalas: any = [];
 
 
 
 
+public valortotal = '';
+
+ constructor(
+ 
+    private service2: AppHttpService,
+    private router: Router,
+  ) {
 
 
-public valortotal= '';
 
-
- constructor(private service: CursosService, private service2: AppHttpService) {
-
-
-   
  }
-  
+
+
 
   ngOnInit() {
-  
-  
-  
-    
-  
 
-    
-
+console.log(this.usuario)
 // json de exibicao de cursos
     this.service2.build('curso')
     .list()
@@ -77,11 +73,8 @@ public valortotal= '';
 this.cursos = data.cursos;
     }
     );
-   
- 
-      
 
-  
+
     this.service2.build('professor')
     .list()
     .subscribe ((data) => {
@@ -95,8 +88,12 @@ this.listarprofessores = data;
 this.listarsalas = data;
     }
     );
+  
 
-   
+// acoes com box de adesao
+
+
+
 
 // acoes com box de adesao
 
@@ -104,7 +101,8 @@ this.listarsalas = data;
 
     $(document).ready(function() {
 
-      
+
+
       $('.botao-criar').click(function() {
         $('.layer-sobreposto').delay(100).fadeIn(500);
           $('.box_inserir').delay(500).fadeIn(500);
@@ -115,30 +113,30 @@ this.listarsalas = data;
       });
 
   });
- 
-
-   // this.service.list()
-    // .subscribe(dados => this.cursos = dados.cursos );
-    // .subscribe(console.log);
-   // console.log(this.cursos);
-
-
 
   }
 
-//salvar dados
-
- 
+  logout() {
+    //sair do login
+    localStorage.clear();
+    alert('Deslogado com sucesso');
+    location.reload();
+   }
 
 save() {
-
-  for (var i in this.salas) {
-    //this.usuario['salas']['sala'][i] = this.salas[i];
-
+//organizar as salas para adicionar
+  for (let i in this.salas) {
+    this.usuario.salas.push({id: '', sala: this.salas[i]})
   }
- 
-console.log(this.usuario)
-/*this.service2.build('curso')
+
+ // organizar as salas para adicionar
+ for (let i in this.professores) {
+  this.usuario.professores.push({id: '', nome: this.professores[i]})
+}
+
+// salvar dados
+
+this.service2.build('curso')
   .create( this.usuario )
   .subscribe(
     () => {
@@ -147,14 +145,13 @@ console.log(this.usuario)
         $('.box_inserir').delay(100).fadeOut(500);
           $('.layer-sobreposto').delay(500).fadeOut(500);
       });
+      location.reload();
     }
   );
-*/
-  }
 
- 
-// conso
-//deletar dados
+}
+
+
   delete(id) {
 
     if (confirm('Você tem certeza')) {
@@ -162,17 +159,15 @@ console.log(this.usuario)
       .delete(id)
       .subscribe(
         () => {
-          $(document).ready(function() {
-          alert('Arquivo exluido com sucesso');
-          $(document).ready(function() {
-            alert('criado com sucesso');
-              $(this).fadeOut(500);
-            });
           
-          });
+          $(document).ready(function() {
+            
+            location.reload();
+            });
+
         }
       );
     }
   }
-  
+
 }

@@ -3,40 +3,33 @@
         <h2> Login  </h2>
         <form #myForm="ngForm" (submit)='save()'>
             <input type="hidden" value name="segredo" [(ngModel)]='segredo'>
-            
+
         <input [ngClass]="{'has-error': !name.valid  && (name.dirty || name.touched)}" required type="text" #name="ngModel" name="nome" required  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
-  
-         
-         <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="nomes" [(ngModel)]='usuario.professores' multiple>
+
+
+         <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="nomes" [(ngModel)]='professores' multiple>
                 <option selected value=""  >Escolha o professor</option>
                 <option  value=" {{ prof.nome }}"   *ngFor="let prof of listarprofessores"> {{ prof.nome }}</option>
-       
+
         </select>
-  
-       
-        <select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="sala" [(ngModel)]='usuario.salas' multiple multiple>
+
+
+        <select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="sala" [(ngModel)]='salas' multiple multiple>
                 <option selected value=""  >Escolha as salas</option>
                 <option  value=" {{ salao.sala }}"   *ngFor="let salao  of listarsalas"> {{ salao.sala }}</option>
-       
+
         </select>
-  
-        <!--
-        <select name="salas"  >
-            <option value="1"  >valor1</option>
-            <option value="2"   >valor2</option>
-            <option value="3">valor3</option>
-            <option value="4">valor4</option>
-        </select>-->
+
       <br clear="all">
-     
+
       <input [ngClass]="{'has-error': !inicia.valid  && (inicia.dirty || inicia.touched)}" class="meio" #inicia="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
      <input [ngClass]="{'has-error': !final.valid  && (final.dirty || final.touched)}"  class="meio" #final="ngModel" type="time" min="9:00" max="18:00" required [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
-    
-  
-    
-      <button class="brn--acessar" [disabled]="!myForm.valid">ACESSAR </button>
+
+
+
+      <button class="brn--acessar" [disabled]="!myForm.valid">GRAVAR </button>
           </form>
-    
+
     </div>
     <div class="layer"></div>
     <div class="layer layer-sobreposto" style="display: none;" ></div>
@@ -46,27 +39,29 @@
         </div>
         <div class="titulo">
                 <h2>Cursos</h2>
-    
+
             </div>
         <div class="botao-criar">
-    
+
                 CRIAR
         </div>
-    
-    
-        <div class="box">
+        <div class="botao-criar" (click)='logout()'>
+
+                LOG OFF
+        </div>
+
+
+        <div class="box" routerLinkActive="active">
                 <div class="box--item" *ngFor="let curso of cursos">
-                    <button class="fechar" (click)='delete(curso.id)'></button>
-                    <h3 class="box--materia"> {{ curso.nome }}</h3>
+                    <button class="fechar" ></button>
+                    <a  routerLink="/editar/{{ curso.id }}"> <h3 class="box--materia"> {{ curso.nome }} - [EDITAR]</h3></a>
                     <span class="box--professor"> <span *ngFor="let prof of curso.professores">{{prof.nome}} </span> </span>
 
-                      <span class="box-endereco"> Sala <span *ngFor="let salas of curso.salas">{{salas.sala}} </span> </span>
+                  <span class="box-endereco"> Sala <span *ngFor="let salas of curso.salas">{{salas.sala}} </span> </span>
 
 
-                    <span class="box-horario">  {{curso.inicio}} às {{curso.fim}}</span>
-                </div>
+                <span class="box-horario">  {{curso.inicio}} às {{curso.fim}}</span>
+            </div>
 
         </div>
     </div>
-
-  
