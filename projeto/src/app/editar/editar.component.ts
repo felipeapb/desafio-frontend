@@ -70,10 +70,8 @@ this.listarsalas = data;
  }
  update(){
     
-
-  
  this.service2.build('curso')
-    .update( this.idvalor , this.usuario  )
+    .update( this.idvalor , JSON.stringify(this.usuario)  )
     .subscribe(
       () => {
     alert('sacuraba');
