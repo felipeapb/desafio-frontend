@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { AppHttpService } from './../app-http.service';
 import { Curso } from './../login/curso';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute}  from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
 
 
 import { join } from 'path';
@@ -19,31 +19,29 @@ export class EditarComponent implements OnInit {
 
 public usuario = {
 
-  nome:'' ,
+  nome: '' ,
   inicio: '',
   fim: '',
-  // salas:'' ,
-  // professores: ''
+  salas: '' ,
+  professores: ''
 };
-tatu= [];
 
-public professores = [];
-public salas = [];
-public cursos: any = [];
+
 public listarprofessores: any = [];
 public listarsalas: any = [];
-public valortotal = '';
-idvalor:number = (this.route.params._value.id);
- constructor(
+
+idvalor: number = (this.route.params._value.id);
+
+constructor(
   private service2: AppHttpService,
   private router: Router,
   private route: ActivatedRoute,
  ) {
  // json de exibicao de cursos
- console.log(this.usuario);
+
 
   }
- ngOnInit(){  
+ ngOnInit(){
 
   this.service2.build('curso')
   .view(this.idvalor)
@@ -51,7 +49,7 @@ idvalor:number = (this.route.params._value.id);
  this.usuario = data.curso;
   }
   );
-  
+
   this.service2.build('professor')
   .list()
   .subscribe ((data) => {
@@ -65,13 +63,24 @@ this.listarprofessores = data;
 this.listarsalas = data;
   }
   );
-  
 
  }
- update(){
-    
- this.service2.build('curso')
-    .update( this.idvalor , JSON.stringify(this.usuario)  )
+ update() {
+console.log(this.usuario.professores);
+
+const objetogravar: object = {
+
+  nome: this.usuario.nome ,
+  inicio: this.usuario.inicio ,
+  fim: this.usuario.fim ,
+  salas: this.usuario.salas ,
+  professores:  this.usuario.salas
+};
+
+console.log(objetogravar);
+// let getnomes = 'a';
+  this.service2.build('curso')
+    .update( this.idvalor , objetogravar  )
     .subscribe(
       () => {
     alert('sacuraba');
@@ -80,22 +89,5 @@ this.listarsalas = data;
 }
  // json de exibicao de cursos
 
-
-
-
-
-
-
- 
-
- 
-    
- 
-
- 
-    
-    
-    
- 
 
 }

@@ -1,33 +1,29 @@
 <div class="editor">
 
 
- 
-<form #myForm="ngForm" (submit)='update()'>
+
+  <form #myForm="ngForm" (submit)='update()'>
 
 
-<input [ngClass]="{'has-error': !name.valid  && (name.dirty || name.touched)}" required type="text" #name="ngModel" name="nome" required  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
+  <input [ngClass]="{'has-error': !name.valid  && (name.dirty || name.touched)}" required type="text" #name="ngModel" name="nome" required  [(ngModel)]='usuario.nome'  placeholder="Nome do Curso">
 
+<!--
+   <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="nomes" [(ngModel)]='professores' multiple>
+          <option selected value=""  >Escolha o professor</option>
+          <option  value=" {{ prof.nome }}"   *ngFor="let prof of listarprofessores"> {{ prof.nome }}</option>
+  </select>
+  <select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="sala" [(ngModel)]='salas' multiple multiple>
+          <option selected value=""  >Escolha as salas</option>
+          <option  value=" {{ salao.sala }}"   *ngFor="let salao  of listarsalas"> {{ salao.sala }}</option>
+  </select>
+-->
+  <br clear="all">
 
-<!--  <select #professor="ngModel" [ngClass]="{'has-error': !professor.valid  && (professor.dirty || professor.touched)}"  required name="nomes" [(ngModel)]='professores' multiple>
-        <option selected value=""  >Escolha o professor</option>
-        <option  value=" {{ prof.nome }}"   *ngFor="let prof of listarprofessores"> {{ prof.nome }}</option>
-
-</select>
-
-
-<select #salao="ngModel" [ngClass]="{'has-error': !salao.valid  && (salao.dirty || salao.touched)}"  required name="sala" [(ngModel)]='salas' multiple multiple>
-        <option selected value=""  >Escolha as salas</option>
-        <option  value=" {{ salao.sala }}"   *ngFor="let salao  of listarsalas"> {{ salao.sala }}</option>
-
-</select> -->
-
-<br clear="all">
-
-<input [ngClass]="{'has-error': !inicia.valid  && (inicia.dirty || inicia.touched)}" class="meio" #inicia="ngModel" type="text" required [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
-<input [ngClass]="{'has-error': !final.valid  && (final.dirty || final.touched)}"  class="meio" #final="ngModel" type="text" required [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
+  <input [ngClass]="{'has-error': !inicia.valid  && (inicia.dirty || inicia.touched)}" class="meio" #inicia="ngModel" type="text" required [(ngModel)]='usuario.inicio' name="inicio" placeholder="Início">
+  <input [ngClass]="{'has-error': !final.valid  && (final.dirty || final.touched)}"  class="meio" #final="ngModel" type="text" required [(ngModel)]='usuario.fim' name="fim" placeholder="Fim">
 
 
 
-<button class="brn--acessar" [disabled]="!myForm.valid">GRAVAR </button>
-  </form>
-</div>
+  <button class="brn--acessar" [disabled]="!myForm.valid">GRAVAR </button>
+    </form>
+  </div>

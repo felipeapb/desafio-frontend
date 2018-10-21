@@ -70,17 +70,20 @@ button[disabled]{
 }
 .editor{ width: 400px; margin: auto; background: rgba(136, 136, 136, 0.7)}
 
+
 .box_inserir select, .editor select {
-  margin-left: 20px;
-  height: 45px;
-  width: 90%;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  padding: 0px 22px;
-  color: #fff;
-  background: transparent;
-  margin-bottom: 20px;
+    margin-left: 30px;
+    height: 45px;
+    width: 90%;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 0px 22px;
+    color: #fff;
+    background: transparent;
+    margin-bottom: 20px;
+
 }
+
 .box_inserir select option, .editor select option  {
     background: rgba(136, 136, 136, 1);
     margin: 8px 3px;
@@ -165,6 +168,7 @@ button[disabled]{
     font-size: 0.8em;
     cursor: pointer;
     color:#fff;
+    margin-right:10px
 
 }
 .box{ overflow: hidden; width: 100%;}
@@ -241,6 +245,7 @@ button[disabled]{
 
     }
     .box{ overflow: hidden; width: 80%; margin: 120px auto ;}
+
     .active{ color:#fff !important;}
     .box_inserir, .box_editar {
         position: absolute;
@@ -255,4 +260,5 @@ button[disabled]{
         padding: 10px;
         box-sizing: border-box;
     }
+    .box_inserir, box_editar{ position: absolute; width: 30%; height: 430px; top:50%; left: 50%; margin-left: -15%; margin-top: -200px;  background: rgba(136, 136, 136, 1); z-index: 60; padding:10px; box-sizing: border-box  }
 }

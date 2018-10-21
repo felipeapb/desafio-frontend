@@ -30,7 +30,7 @@ console.log('service-construtor');
     return this.http.get(this.url + '/' + id );
   }
   update(id , data): any {
-    return this.http.patch(this.url + '/' + id, data )
+    return this.http.patch(this.url + '/:' + id, data )
 
   }
 
