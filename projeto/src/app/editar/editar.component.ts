@@ -25,12 +25,12 @@ public usuario = {
   salas: '' ,
   professores: ''
 };
-
+idvalor = '';
 
 public listarprofessores: any = [];
 public listarsalas: any = [];
 
-idvalor: number = (this.route.params._value.id);
+// idvalor: number = (this.route.params._value.id);
 
 constructor(
   private service2: AppHttpService,
@@ -38,10 +38,10 @@ constructor(
   private route: ActivatedRoute,
  ) {
  // json de exibicao de cursos
-
+this.idvalor = this.route.snapshot.params['id'];
 
   }
- ngOnInit(){
+ ngOnInit() {
 
   this.service2.build('curso')
   .view(this.idvalor)
