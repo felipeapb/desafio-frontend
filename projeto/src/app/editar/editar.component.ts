@@ -38,10 +38,18 @@ constructor(
   private route: ActivatedRoute,
  ) {
  // json de exibicao de cursos
-this.idvalor = this.route.snapshot.params['id'];
+// this.idvalor = this.route.snapshot.params['id'];
 
   }
  ngOnInit() {
+
+this.route.params.subscribe(
+(params: any) => {
+  this.idvalor = params['id'];
+}
+);
+
+console.log(this.idvalor);
 
   this.service2.build('curso')
   .view(this.idvalor)
